@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tester Starter Playground</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      color: #222;
+      margin: 0;
+      padding: 15px;
+      max-width: 900px;
+      height: 100vh;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* === HEADER NAVIGATION BAR === */
+    header {
+      position: sticky;
+      top: 0;
+      background: #1e40af;
+      padding: 10px 20px;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+      z-index: 100;
+      margin-bottom: 20px;
+    }
+
+    nav#main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    nav#main-nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      background: #1e40af;
+      transition: background-color 0.3s ease;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    nav#main-nav a:hover,
+    nav#main-nav a:focus {
+      background: #3b82f6;
+      outline: none;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1e40af;
+      margin-top: 0;
+    }
+
+    p.intro {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #334155;
+    }
+
+    form#starter-form {
+      background: #fff;
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+      margin-bottom: 2rem;
+    }
+
+    form#starter-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    form#starter-form input[type="text"],
+    form#starter-form input[type="email"],
+    form#starter-form select {
+      width: 90%;
+      padding: 8px 10px;
+      margin-bottom: 15px;
+      border: 1.8px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    form#starter-form input[type="text"]:focus,
+    form#starter-form input[type="email"]:focus,
+    form#starter-form select:focus {
+      border-color: #2563eb;
+      outline: none;
+      box-shadow: 0 0 5px #2563ebaa;
+    }
+
+    fieldset{border-radius: 10px;}
+
+    .radio-group,
+    .checkbox-group {
+      margin-bottom: 15px;
+    }
+
+    .radio-group label,
+    .checkbox-group label {
+      font-weight: normal;
+      margin-right: 20px;
+      color: #334155;
+      cursor: pointer;
+    }
+
+    form#starter-form button {
+      background: #2563eb;
+      color: white;
+      padding: 12px 25px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+
+    form#starter-form button:hover {
+      background: #1d4ed8;
+    }
+
+    #form-message {
+      margin-top: 15px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .testing-update {
+      background: #fff3e0;
+      border: 1.5px solid #ffcc80;
+      border-radius: 12px;
+      padding: 18px 28px;
+      max-width: 600px;
+      margin: 2rem auto;
+      font-style: italic;
+      color: #6a4c00;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-align: center;
+      letter-spacing: 0.02em;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(255, 204, 128, 0.6);
+      transition: box-shadow 0.4s ease, color 0.4s ease;
+      cursor: default;
+    }
+
+    .testing-update:hover {
+      box-shadow: 0 0 20px 4px #ffcc80, 0 0 40px 8px #ffd97d;
+      color: #7c5e00;
+    }
+
+    .testing-update::before {
+      content: "✨";
+      font-size: 1.8rem;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: sparkle 2.5s infinite alternate ease-in-out;
+    }
+
+    .testing-update-fieldset {
+      border: 2px solid #c4e17f;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1.5rem 1rem 1rem 1rem;
+      background: #f9fde6;
+      box-shadow: 0 4px 10px rgba(196, 225, 127, 0.4);
+    }
+
+    .testing-update-legend {
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #6b7b00;
+      padding: 0 5px;
+      letter-spacing: 0.03em;
+      font-style: normal;
+      cursor: default;
+    }
+
+    .testing-update-message {
+      font-style: italic;
+      color: #6b7b00;
+      font-weight: 450;
+      font-size: 1rem;
+      text-align: center;
+      letter-spacing: 0.02em;
+      padding: 0.75rem 0.85rem;
+      margin-top: 0.5rem;
+      border-radius: 10px;
+      background: #f9fde6;
+      box-shadow: inset 0 0 10px rgba(196, 225, 127, 0.4);
+      cursor: default;
+      transition: box-shadow 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+
+    .testing-update-message:hover {
+      box-shadow: inset 0 0 20px 5px #c4e17f;
+      color: #4a5900;
+    }
+
+
+
+
+
+    /* Testing update box
+    .testing-update {
+      background: #fff3e0;
+      border: 1px solid #ffcc80;
+      border-radius: 8px;
+      padding: 12px 20px;
+      max-width: 600px;
+      margin: 1rem auto;
+      font-style: italic;
+      color: #6a4c00;
+      box-shadow: 0 2px 5px rgba(255, 204, 128, 0.4);
+      text-align: center;
+    } */
+  </style>
+</head>
+
+<body>
+
+  <header role="banner" aria-label="Primary navigation">
+    <nav id="main-nav" role="navigation" aria-label="Main navigation menu">
+      <a href="form.html" tabindex="0">Form</a>
+      <a href="login.html" tabindex="0">Login Form</a>
+      <a href="register.html" tabindex="0">Registration Form</a>
+      <a href="forgot-password.html" tabindex="0">Forgot Password</a>
+      <a href="student-sports-records.html" tabindex="0">Student Sports Report</a>
+      <a href="to-do.html" tabindex="0">To-Do</a>
+      <a href="calculator.html" tabindex="0">Calculator</a>
+    </nav>
+  </header>
+  <fieldset class="testing-update-fieldset" role="alert" aria-live="polite" tabindex="0">
+    <legend class="testing-update-legend">✨ Almost There! ✨</legend>
+    <div class="testing-update-message">
+      The testing playground is under active development. A few exciting updates are on the way. Thanks
+      for your patience!
+    </div>
+  </fieldset>
+
+  <h1 id="page-title">Tester Starter Playground</h1>
+  <p class="intro" id="intro-text">
+    Welcome beginner testers! Use this page to practice testing various form elements, validations, and table data on a
+    single page.<br />
+    Once comfortable, explore the links above for more advanced modules.
+  </p>
+
+  <form id="starter-form" aria-label="Starter test form">
+    <label for="input-username">Username</label>
+    <input type="text" id="input-username" name="username" placeholder="Enter your username" required
+      autocomplete="off" />
+
+    <label for="input-email">Email address</label>
+    <input type="email" id="input-email" name="email" placeholder="Enter your email" required autocomplete="off" />
+
+    <label for="select-class">Select Class</label>
+    <select id="select-class" name="class" required>
+      <option value="" disabled selected>Select class</option>
+      <option value="5th">5th Standard</option>
+      <option value="6th">6th Standard</option>
+      <option value="7th">7th Standard</option>
+      <option value="8th">8th Standard</option>
+      <option value="9th">9th Standard</option>
+      <option value="10th">10th Standard</option>
+    </select>
+
+    <fieldset class="radio-group" aria-label="Select Sport">
+      <legend>Select Sport</legend>
+      <label><input type="radio" name="sport" value="Football" required> Football</label>
+      <label><input type="radio" name="sport" value="Cricket"> Cricket</label>
+      <label><input type="radio" name="sport" value="Badminton"> Badminton</label>
+      <label><input type="radio" name="sport" value="Basketball"> Basketball</label>
+    </fieldset>
+
+    <fieldset class="checkbox-group" aria-label="Participation Level">
+      <legend>Participation Level</legend>
+      <label><input type="checkbox" name="participation" value="Regular"> Regular</label>
+      <label><input type="checkbox" name="participation" value="Occasional"> Occasional</label>
+      <label><input type="checkbox" name="participation" value="Rarely"> Rarely</label>
+    </fieldset>
+
+    <button type="submit" id="submit-button">Submit</button>
+
+    <div id="form-message" role="alert" aria-live="polite"></div>
+  </form>
+
+  <script>
+    const form = document.getElementById('starter-form');
+    const messageDiv = document.getElementById('form-message');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Simple validation for checkboxes (at least one participation level)
+      const participationCheckboxes = form.querySelectorAll('input[name="participation"]:checked');
+      if (participationCheckboxes.length === 0) {
+        messageDiv.textContent = 'Please select at least one participation level.';
+        messageDiv.style.color = 'red';
+        return;
+      }
+
+      // Gather form data
+      const formData = {
+        username: form.username.value.trim(),
+        email: form.email.value.trim(),
+        class: form['class'].value,
+        sport: form.sport.value,
+        participation: Array.from(participationCheckboxes).map(cb => cb.value)
+      };
+
+      // Display success message
+      messageDiv.textContent = `Thank you, ${formData.username}! Your data has been submitted successfully.`;
+      messageDiv.style.color = 'green';
+
+      // For demo: log the data
+      console.log('Form Data Submitted:', formData);
+
+      // Reset form after submission (optional)
+      form.reset();
+    });
+  </script>
+</body>
+
+</html>

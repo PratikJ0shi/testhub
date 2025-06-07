@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Sports Participation</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #f3e7e9, #e3eeff);
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 30px 15px;
+    }
+    .container {
+      background: #fff;
+      max-width: 800px;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2b4c7e;
+    }
+    #loading {
+      position: fixed;
+      inset: 0;
+      background: #2b4c7e;
+      color: white;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    #loading::after {
+      content: '';
+      border: 5px solid #fff;
+      border-top: 5px solid transparent;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    thead {
+      background-color: #2b4c7e;
+      color: white;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+    tr:hover {
+      background-color: #f0f9ff;
+    }
+
+    @media (max-width: 768px) {
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loading">Loading Student Records</div>
+
+<div class="container" id="content" style="display:none;">
+  <h2>Student Sports Participation (5th - 10th Std)</h2>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Class</th>
+          <th>Sport</th>
+          <th>Participation Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Aarav Joshi</td><td>5</td><td>Kabaddi</td><td>Regular</td></tr>
+        <tr><td>Snehal Pawar</td><td>6</td><td>Kho-Kho</td><td>Occasional</td></tr>
+        <tr><td>Rohan Jadhav</td><td>7</td><td>Cricket</td><td>Regular</td></tr>
+        <tr><td>Prajakta More</td><td>8</td><td>Badminton</td><td>Occasional</td></tr>
+        <tr><td>Sameer Deshmukh</td><td>5</td><td>Football</td><td>Regular</td></tr>
+        <tr><td>Neha Shinde</td><td>9</td><td>Volleyball</td><td>Occasional</td></tr>
+        <tr><td>Aditya Bhosale</td><td>10</td><td>Cricket</td><td>Regular</td></tr>
+        <tr><td>Snehal Pawar</td><td>6</td><td>Basketball</td><td>Regular</td></tr>
+        <tr><td>Meera Phadke</td><td>7</td><td>Throwball</td><td>Occasional</td></tr>
+        <tr><td>Riya Gokhale</td><td>8</td><td>Kho-Kho</td><td>Regular</td></tr>
+        <tr><td>Tanmay Kulkarni</td><td>9</td><td>Kabaddi</td><td>Regular</td></tr>
+        <tr><td>Prajakta More</td><td>8</td><td>Football</td><td>Occasional</td></tr>
+        <tr><td>Vishal Patil</td><td>10</td><td>Hockey</td><td>Regular</td></tr>
+        <tr><td>Kavya Nalawade</td><td>6</td><td>Basketball</td><td>Occasional</td></tr>
+        <tr><td>Aarav Joshi</td><td>5</td><td>Cricket</td><td>Occasional</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    }, 3000);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator – QA Showcase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --accent: #3b82f6;
+      --bg: #f5f7fa;
+      --light: #ffffff;
+      --muted: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: #333;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .calculator, .qa-docs {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    .display {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.5rem;
+      text-align: right;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #f0f4f8;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    button {
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: var(--primary);
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: var(--accent);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid var(--muted);
+      padding: 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--muted);
+      color: var(--primary);
+    }
+
+    pre {
+      background: #f1f5f9;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🧮 Calculator – QA Functionality & Testing</h1>
+</header>
+
+<div class="container">
+  <!-- Calculator Section -->
+  <div class="calculator">
+    <h2>Basic Calculator</h2>
+    <input type="text" id="display" class="display" readonly aria-label="Calculator display" />
+    <div class="buttons" aria-label="Calculator buttons">
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button onclick="press('/')">÷</button>
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('*')">×</button>
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('-')">−</button>
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="press('+')">+</button>
+      <button onclick="clearDisplay()" style="grid-column: span 4; background: #ef4444;">Clear</button>
+    </div>
+  </div>
+
+  <!-- QA Docs Section -->
+  <div class="qa-docs">
+    <h2>📋 QA Documentation</h2>
+
+    <h3>✅ Test Plan</h3>
+    <pre>
+Objective:
+- Validate calculator operations (add, subtract, multiply, divide)
+
+Scope:
+- Button input, calculation logic, UI update
+
+Tools:
+- Manual testing, browser dev tools
+
+Environment:
+- Local HTML page, desktop & mobile browsers
+    </pre>
+
+    <h3>🧪 Test Scenarios</h3>
+    <pre>
+1. Perform basic arithmetic operations
+2. Handle decimal inputs
+3. Prevent multiple operators without values
+4. Clear input field correctly
+5. Responsive UI and accessible interaction
+    </pre>
+
+    <h3>🔍 Test Cases</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Test Case ID</th>
+          <th>Title</th>
+          <th>Preconditions</th>
+          <th>Test Steps</th>
+          <th>Expected Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TC-001</td>
+          <td>Addition Operation</td>
+          <td>Calculator loaded</td>
+          <td>Enter 5 + 3, then press =</td>
+          <td>Display shows 8</td>
+        </tr>
+        <tr>
+          <td>TC-002</td>
+          <td>Division by Zero</td>
+          <td>Calculator loaded</td>
+          <td>Enter 7 / 0, then press =</td>
+          <td>Display shows 'Error' or handled gracefully</td>
+        </tr>
+        <tr>
+          <td>TC-003</td>
+          <td>Decimal Calculation</td>
+          <td>Calculator loaded</td>
+          <td>Enter 3.5 * 2, then press =</td>
+          <td>Display shows 7</td>
+        </tr>
+        <tr>
+          <td>TC-004</td>
+          <td>Clear Function</td>
+          <td>Some input entered</td>
+          <td>Press Clear</td>
+          <td>Display resets to empty</td>
+        </tr>
+        <tr>
+          <td>TC-005</td>
+          <td>Multiple Operator Prevention</td>
+          <td>Start entering equation</td>
+          <td>Enter 6 ++ 2</td>
+          <td>Invalid sequence is not allowed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  const display = document.getElementById("display");
+
+  function press(value) {
+    display.value += value;
+  }
+
+  function calculate() {
+    try {
+      if (display.value === "") return;
+      const result = eval(display.value);
+      display.value = isFinite(result) ? result : "Error";
+    } catch (e) {
+      display.value = "Error";
+    }
+  }
+
+  function clearDisplay() {
+    display.value = "";
+  }
+</script>
+
+</body>
+</html>

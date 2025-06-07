@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Form – QA Suite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --accent: #3b82f6;
+      --bg: #f5f7fa;
+      --light: #ffffff;
+      --muted: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: #333;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .form-section, .qa-section {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-top: 0;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 1rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.4rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: normal;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: var(--accent);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid var(--muted);
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--muted);
+      color: var(--primary);
+    }
+
+    pre {
+      background: #f1f5f9;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📋 Registration Form – QA Compliance</h1>
+</header>
+
+<div class="container">
+  <!-- Form -->
+  <div class="form-section">
+    <h2>👤 Registration Form</h2>
+    <form id="regForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+      <label for="phone">Contact Number</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" maxlength="10" required>
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob">
+
+      <label>Gender</label>
+      <div class="radio-group">
+        <label><input type="radio" name="gender" value="male" required> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+        <label><input type="radio" name="gender" value="other"> Other</label>
+      </div>
+
+      <label for="country">Country</label>
+      <select id="country" name="country" required>
+        <option value="">Select Country</option>
+        <option value="us">United States</option>
+        <option value="in">India</option>
+        <option value="uk">United Kingdom</option>
+        <option value="au">Australia</option>
+      </select>
+
+      <label for="bio">Short Bio</label>
+      <textarea id="bio" name="bio" rows="3"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- QA Docs -->
+  <div class="qa-section">
+    <h2>🧪 QA Documentation</h2>
+
+    <h3>Test Plan</h3>
+    <pre>
+Objective:
+- Validate all input fields for correctness and usability
+
+Scope:
+- Form validations, field behaviors, UX, responsive layout
+
+Tools:
+- Manual Testing, Chrome DevTools, Browserstack
+
+Environment:
+- Local Static Page (HTML5, CSS3)
+    </pre>
+
+    <h3>Test Scenarios</h3>
+    <pre>
+1. Submit form with valid inputs
+2. Submit with each field empty
+3. Mismatched password confirmation
+4. Invalid email format
+5. Invalid phone number
+6. Unselected gender
+7. Unselected country
+8. Text area left blank
+9. Responsive display test (mobile/tablet/desktop)
+    </pre>
+
+    <h3>Test Cases</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Scenario</th>
+          <th>Steps</th>
+          <th>Expected Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TC-01</td>
+          <td>All fields valid</td>
+          <td>Enter valid data in all fields > Submit</td>
+          <td>Form submitted successfully</td>
+        </tr>
+        <tr>
+          <td>TC-02</td>
+          <td>Missing email</td>
+          <td>Leave email blank > Submit</td>
+          <td>Email field validation error</td>
+        </tr>
+        <tr>
+          <td>TC-03</td>
+          <td>Password mismatch</td>
+          <td>Enter non-matching passwords > Submit</td>
+          <td>Error alert for mismatch</td>
+        </tr>
+        <tr>
+          <td>TC-04</td>
+          <td>Invalid phone number</td>
+          <td>Enter <10 digits > Submit</td>
+          <td>Phone validation fails</td>
+        </tr>
+        <tr>
+          <td>TC-05</td>
+          <td>Responsive design</td>
+          <td>Resize browser/device</td>
+          <td>Layout adjusts without overlap</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  document.getElementById("regForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const pwd = document.getElementById("password").value;
+    const confirmPwd = document.getElementById("confirmPassword").value;
+
+    if (pwd !== confirmPwd) {
+      alert("❌ Passwords do not match.");
+      return;
+    }
+
+    alert("✅ Registration successful.");
+  });
+</script>
+
+</body>
+</html>

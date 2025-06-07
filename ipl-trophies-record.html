@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPL Teams & Trophy Records</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1d4ed8;
+      --bg: #f0f4f8;
+      --text: #1f2937;
+      --card: #ffffff;
+      --accent: #2563eb;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 2.5fr 2fr;
+      gap: 2rem;
+      max-width: 100%;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      overflow-x: auto;
+      width: 95%;
+    }
+
+    .QA-doc {
+      width: 100%;
+    }
+
+    .QA-doc tr {
+      width: 100%;
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 0.75rem;
+      border: 1px solid #e5e7eb;
+      text-align: center;
+    }
+
+    th {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    @media screen and (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      td {
+        padding-left: 50%;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        font-weight: bold;
+        color: var(--primary);
+      }
+    }
+
+    .doc-section h3 {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #111827;
+    }
+
+    .doc-section ul {
+      padding-left: 1.2rem;
+      list-style: disc;
+      margin-bottom: 1rem;
+    }
+
+    .doc-section li {
+      margin-bottom: 0.4rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>IPL Teams & Trophy Record</header>
+
+  <div class="container">
+    <!-- Tables Section -->
+    <div class="card">
+      <section>
+        <h2>All IPL Teams</h2>
+        <table id="table-all-teams">
+          <thead>
+            <tr>
+              <th>Sr. No</th>
+              <th>Team</th>
+              <th>Short</th>
+              <th>City</th>
+              <th>Founded</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td data-label="Team">Mumbai Indians</td>
+              <td data-label="Short">MI</td>
+              <td data-label="City">Mumbai</td>
+              <td data-label="Founded">2008</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td data-label="Team">Chennai Super Kings</td>
+              <td data-label="Short">CSK</td>
+              <td data-label="City">Chennai</td>
+              <td data-label="Founded">2008</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td data-label="Team">Royal Challengers Bengaluru</td>
+              <td data-label="Short">RCB</td>
+              <td data-label="City">Bengaluru</td>
+              <td data-label="Founded">2008</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td data-label="Team">Kolkata Knight Riders</td>
+              <td data-label="Short">KKR</td>
+              <td data-label="City">Kolkata</td>
+              <td data-label="Founded">2008</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td data-label="Team">Delhi Capitals</td>
+              <td data-label="Short">DC</td>
+              <td data-label="City">Delhi</td>
+              <td data-label="Founded">2008</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td data-label="Team">Punjab Kings</td>
+              <td data-label="Short">PBKS</td>
+              <td data-label="City">Mohali</td>
+              <td data-label="Founded">2008</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td data-label="Team">Sunrisers Hyderabad</td>
+              <td data-label="Short">SRH</td>
+              <td data-label="City">Hyderabad</td>
+              <td data-label="Founded">2013</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td data-label="Team">Gujarat Titans</td>
+              <td data-label="Short">GT</td>
+              <td data-label="City">Ahmedabad</td>
+              <td data-label="Founded">2022</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td data-label="Team">Lucknow Super Giants</td>
+              <td data-label="Short">LSG</td>
+              <td data-label="City">Lucknow</td>
+              <td data-label="Founded">2022</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section style="margin-top: 2rem;">
+        <h2>Trophy Winners</h2>
+        <table id="table-winners">
+          <thead>
+            <tr>
+              <th>Sr. No</th>
+              <th>Team</th>
+              <th>Titles</th>
+              <th>Finals</th>
+              <th>Years</th>
+              <th>Last Win</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Rajasthan Royals</td>
+              <td>1</td>
+              <td>1</td>
+              <td>2008</td>
+              <td>2008</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Deccan Chargers</td>
+              <td>1</td>
+              <td>1</td>
+              <td>2009</td>
+              <td>2009</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Mumbai Indians</td>
+              <td>5</td>
+              <td>6</td>
+              <td>2013, 2015, 2017, 2019, 2020</td>
+              <td>2020</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Chennai Super Kings</td>
+              <td>5</td>
+              <td>10</td>
+              <td>2010, 2011, 2018, 2021, 2023</td>
+              <td>2023</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Kolkata Knight Riders</td>
+              <td>3</td>
+              <td>4</td>
+              <td>2012, 2014, 2024</td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Royal Challengers Bangalore</td>
+              <td>1</td>
+              <td>4</td>
+              <td>2025</td>
+              <td>2025</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Sunrisers Hyderabad</td>
+              <td>1</td>
+              <td>3</td>
+              <td>2016</td>
+              <td>2016</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Gujarat Titans</td>
+              <td>1</td>
+              <td>2</td>
+              <td>2022</td>
+              <td>2022</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <section style="font-size: 10px;" class="QA-doc">
+      <!-- QA Documentation Section -->
+      <aside class="card doc-section" style="font-size: 14px; background-color: #f0f2f5;">
+        <h2>📋 QA Documentation</h2>
+
+        <h3>Test Plan</h3>
+        <ul>
+          <li>Objective: Validate IPL dashboard structure and data</li>
+          <li>Scope: Table layout, responsiveness, completeness</li>
+          <li>Tools: Manual, Browser dev tools, Selenium</li>
+          <li>Environment: Chrome, Firefox, Edge (Desktop + Mobile)</li>
+        </ul>
+        <hr>
+
+        <h3>Test Scenarios</h3>
+        <ul>
+          <li>Verify all 9 IPL teams are listed with correct details</li>
+          <li>Verify each team has a unique short code and a founded year</li>
+          <li>Ensure trophy table includes all winners from 2008 to 2025</li>
+          <li> Identify the Oldest IPL Team with No Titles</li>
+          <li>Identify the Oldest IPL Team with No Titles</li>
+
+        </ul>
+        <hr>
+
+        <h3>Test Cases</h3>
+        <table border="1" cellpadding="5" cellspacing="0" style="width: 95%; font-size: 12px;" border-collapse:
+          collapse;>
+          <thead>
+            <tr>
+              <th>TC ID</th>
+              <th>Test Scenario</th>
+              <th>Test Steps</th>
+              <th>Expected Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TC001</td>
+              <td>Verify all 9 IPL teams are listed with correct details</td>
+              <td>Open teams table → Count rows → Validate each row contains team, short code, city, founded</td>
+              <td>All 9 teams listed with accurate and complete data</td>
+            </tr>
+            <tr>
+              <td>TC002</td>
+              <td>Verify each team has a unique short code and a founded year</td>
+              <td>Loop through teams → Check for duplicate short codes and missing founded years</td>
+              <td>All short codes are unique and every team has a valid year</td>
+            </tr>
+            <tr>
+              <td>TC003</td>
+              <td>Ensure trophy table includes all winners from 2008 to 2025</td>
+              <td>Review 'Years' column → Check if each year from 2008–2025 is covered</td>
+              <td>All winning years between 2008–2025 are present without duplicates or missing</td>
+            </tr>
+            <tr>
+              <td>TC004</td>
+              <td>Identify the oldest IPL team with no titles</td>
+              <td>Sort teams by founded year → Cross-check with trophy winners list</td>
+              <td>Identify team(s) founded earliest with zero titles</td>
+            </tr>
+
+            <tr>
+              <td>TC005</td>
+              <td>Identify the IPL Teams with No Titles</td>
+              <td>Review the trophy winners table.→
+              Extract all teams listed.→
+               Compare with the full list of IPL teams.→
+              Teams from the full list not found in winners list are identified.</td>
+              <td>All IPL teams without any titles are correctly identified and listed.</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+
+      </aside>
+    </section>
+  </div>
+</body>
+
+</html>
