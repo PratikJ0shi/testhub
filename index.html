@@ -8,17 +8,17 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 24px;
       background: #f0f4f8;
       color: #222;
       margin: 0;
       padding: 15px;
-      max-width: 900px;
+      max-width: 68%;
       height: 100vh;
       margin-left: auto;
       margin-right: auto;
     }
 
-    /* === HEADER NAVIGATION BAR === */
     header {
       position: sticky;
       top: 0;
@@ -28,6 +28,28 @@
       box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
       z-index: 100;
       margin-bottom: 20px;
+    }
+
+    /* Hamburger toggle */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 10px;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    #nav-toggle {
+      display: none;
     }
 
     nav#main-nav {
@@ -44,15 +66,42 @@
       font-weight: 600;
       border-radius: 8px;
       background: #1e40af;
-      transition: background-color 0.3s ease;
-      font-size: 0.9rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-size: 1rem;
       white-space: nowrap;
     }
 
     nav#main-nav a:hover,
     nav#main-nav a:focus {
-      background: #3b82f6;
+      background-color: #facc15;
+      color: #1e3a8a;
       outline: none;
+    }
+
+    @media (max-width: 1160px) {
+      body{width: 70%;}
+      .hamburger {
+        display: flex;
+      }
+
+      nav#main-nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background: #1e40af;
+        padding: 10px 0;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+
+      #nav-toggle:checked + .hamburger + #main-nav {
+        display: flex;
+      }
+
+      nav#main-nav a {
+        width: 90%;
+        padding: 10px 20px;
+      }
     }
 
     h1 {
@@ -103,7 +152,9 @@
       box-shadow: 0 0 5px #2563ebaa;
     }
 
-    fieldset{border-radius: 10px;}
+    fieldset {
+      border-radius: 10px;
+    }
 
     .radio-group,
     .checkbox-group {
@@ -139,40 +190,6 @@
       margin-top: 15px;
       font-weight: 600;
       text-align: center;
-    }
-
-    .testing-update {
-      background: #fff3e0;
-      border: 1.5px solid #ffcc80;
-      border-radius: 12px;
-      padding: 18px 28px;
-      max-width: 600px;
-      margin: 2rem auto;
-      font-style: italic;
-      color: #6a4c00;
-      font-weight: 600;
-      font-size: 1.1rem;
-      text-align: center;
-      letter-spacing: 0.02em;
-      position: relative;
-      box-shadow: 0 4px 10px rgba(255, 204, 128, 0.6);
-      transition: box-shadow 0.4s ease, color 0.4s ease;
-      cursor: default;
-    }
-
-    .testing-update:hover {
-      box-shadow: 0 0 20px 4px #ffcc80, 0 0 40px 8px #ffd97d;
-      color: #7c5e00;
-    }
-
-    .testing-update::before {
-      content: "✨";
-      font-size: 1.8rem;
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      animation: sparkle 2.5s infinite alternate ease-in-out;
     }
 
     .testing-update-fieldset {
@@ -216,59 +233,46 @@
       box-shadow: inset 0 0 20px 5px #c4e17f;
       color: #4a5900;
     }
-
-
-
-
-
-    /* Testing update box
-    .testing-update {
-      background: #fff3e0;
-      border: 1px solid #ffcc80;
-      border-radius: 8px;
-      padding: 12px 20px;
-      max-width: 600px;
-      margin: 1rem auto;
-      font-style: italic;
-      color: #6a4c00;
-      box-shadow: 0 2px 5px rgba(255, 204, 128, 0.4);
-      text-align: center;
-    } */
   </style>
 </head>
 
 <body>
 
   <header role="banner" aria-label="Primary navigation">
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
     <nav id="main-nav" role="navigation" aria-label="Main navigation menu">
-      <a href="form.html" tabindex="0">Form</a>
-      <a href="login.html" tabindex="0">Login Form</a>
-      <a href="register.html" tabindex="0">Registration Form</a>
-      <a href="forgot-password.html" tabindex="0">Forgot Password</a>
-      <a href="student-sports-records.html" tabindex="0">Student Sports Report</a>
-      <a href="to-do.html" tabindex="0">To-Do</a>
-      <a href="calculator.html" tabindex="0">Calculator</a>
+      <a href="form.html">Form</a>
+      <a href="login.html">Login Form</a>
+      <a href="register.html">Registration Form</a>
+      <a href="forgot-password.html">Forgot Password</a>
+      <!-- <a href="student-sports-records.html">Student Sports Report</a> -->
+      <a href="to-do.html">To-Do</a>
+      <a href="calculator.html">Calculator</a>
     </nav>
   </header>
+
   <fieldset class="testing-update-fieldset" role="alert" aria-live="polite" tabindex="0">
     <legend class="testing-update-legend">✨ Almost There! ✨</legend>
     <div class="testing-update-message">
-      The testing playground is under active development. A few exciting updates are on the way. Thanks
-      for your patience!
+      The testing playground is under active development. A few exciting updates are on the way. Thanks for your patience!
     </div>
   </fieldset>
 
   <h1 id="page-title">Tester Starter Playground</h1>
   <p class="intro" id="intro-text">
-    Welcome beginner testers! Use this page to practice testing various form elements, validations, and table data on a
-    single page.<br />
-    Once comfortable, explore the links above for more advanced modules.
+    Welcome beginner testers! Use this page to practice testing various form elements, validations, and table data on a single page.
+    <br />Once comfortable, explore the links above for more advanced modules.
   </p>
 
   <form id="starter-form" aria-label="Starter test form">
     <label for="input-username">Username</label>
-    <input type="text" id="input-username" name="username" placeholder="Enter your username" required
-      autocomplete="off" />
+    <input type="text" id="input-username" name="username" placeholder="Enter your username" required autocomplete="off" />
 
     <label for="input-email">Email address</label>
     <input type="email" id="input-email" name="email" placeholder="Enter your email" required autocomplete="off" />
@@ -311,7 +315,6 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // Simple validation for checkboxes (at least one participation level)
       const participationCheckboxes = form.querySelectorAll('input[name="participation"]:checked');
       if (participationCheckboxes.length === 0) {
         messageDiv.textContent = 'Please select at least one participation level.';
@@ -319,7 +322,6 @@
         return;
       }
 
-      // Gather form data
       const formData = {
         username: form.username.value.trim(),
         email: form.email.value.trim(),
@@ -328,14 +330,10 @@
         participation: Array.from(participationCheckboxes).map(cb => cb.value)
       };
 
-      // Display success message
       messageDiv.textContent = `Thank you, ${formData.username}! Your data has been submitted successfully.`;
       messageDiv.style.color = 'green';
 
-      // For demo: log the data
       console.log('Form Data Submitted:', formData);
-
-      // Reset form after submission (optional)
       form.reset();
     });
   </script>
